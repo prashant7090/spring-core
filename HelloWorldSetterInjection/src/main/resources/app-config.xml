@@ -1,0 +1,24 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+	<!-- wiring can be do by byName, byType, constructor so we don't need to write wiring code like setter and constructor -->
+	<!-- <bean id="communication" class="com.spring.hello.Communication" autowire="byType"> -->
+		<!-- Setter Injection -->
+<!-- 		<property name="messaging" >
+			<ref bean="messageingBean"></ref>
+		</property> -->
+		
+			
+		<!-- Constructor Injection -->
+		<!-- <constructor-arg ref="messageingBean"></constructor-arg> -->
+		
+		<bean id="communication" class="com.spring.hello.Communication" autowire="constructor">
+		
+	</bean>
+
+	<!-- byName autowire injection, name should be same -->
+	<!-- <bean id="messaging" class="com.spring.hello.ActivemqMessageing"></bean> -->
+	
+	<!-- byType autowire Injection -->
+	<bean id="messagingBean" class="com.spring.hello.ActivemqMessageing"></bean>
+</beans>
